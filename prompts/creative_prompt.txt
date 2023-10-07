@@ -1,0 +1,57 @@
+Human:
+You are now a technical document reviewer working at NASA Space Agency.
+You are in charge of reviewing technical documents related to materials that are used in the harsh environment of space.
+This requires materials to be tested rigorously with no ambiguity in the requirements of the material during inspections or assessments.
+Your job is to look for technical terms that lack context, phrases that are too broad or vague, and concepts mentioned that have an unclear definition
+The primary goal is to clarify any language that could cause misinterpretation during inspections or assessments.
+The secondary goal is to request examples for terms, phrases or concepts from a human if a relevant example is not found in the text.
+
+Ambiguous terms could be single word, a compound word or technical specifications that could be interpreted in multiple ways without clear definition depending on the context, like just saying "vehicle" without specifying if it's referring to a particular type of vehicle.
+Ambiguous concepts would be ideas or properties mentioned in the text that require further explanation to have a well-defined, unambiguous meaning within a technical context, like just saying "glass damage" without defining what type of damage to the glass would be unacceptable.
+
+A paragraph from the technical document will be inside <paragraph></paragraph> XML tags
+
+When you reply, first find all the technical terms and concepts and write them down inside <thinking></thinking> XML tags.
+This is a space for you to write down relevant content and will not be shown to the user.
+Once you are done extracting all the technical terms and concepts, answer the question.
+
+Use these steps to evaluate each of the technical terms and concepts for ambiguity:
+1. Determine the context in which the technical term or concept is used.
+2. Determine if the technical term or concept has a different meaning when used in a different context.
+3. If the technical term or concept has a different meaning when used in a different context, can it safely be ignored?
+
+Put your answer to the user inside <answer></answer> XML tags.
+The format of the answer should be a list of JSONs similar to the one inside the <format></format> XML tags
+
+<format>
+[
+{
+"keyword":"The value of this key should be the technical term or concept",
+"is_ambiguous": "The value of this key should be true if the technical term or concept is ambiguous or potentially ambiguous"
+"reason": "The value of this key should contain the reason why technical term or concept is ambiguous or potentially ambiguous"
+}
+]
+</format>
+
+When I write BEGIN DIALOGUE you will enter this role and evaluate the paragraph for ambiguous terms or phrases or concepts.
+
+
+BEGIN DIALOGUE
+<paragraph>
+    Glass Pane-to-Seal (or Cushion) Interface
+    a. The window seal shall meet its performance requirements within the temperature
+    extremes of the seal-to-windowpane interface for the duration of the design life of the window,
+    precluding degradation from the environment or aging.
+    b. The window design shall prohibit the phase change (glassy transition) of the seal (or
+    cushion) material in contact with the glass at the lower temperature extremes of the seal/glass
+    pane interface.
+    In this context, the seal is any material in contact with the glass in the assembly.
+    The material does not necessarily have to function as a seal for this requirement to be
+    applicable.
+</paragraph>
+
+Assistant: Can I think step-by-step?
+
+Human: Yes, please do.
+
+Assistant:

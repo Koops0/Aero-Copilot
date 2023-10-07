@@ -1,0 +1,29 @@
+# Virtual Environment
+venv/
+
+# Python Bytecode
+__pycache__/
+*.pyc
+
+# Database (if you're not using a database)
+db.sqlite3
+
+# IDE/Editor specific files
+.idea/
+.vscode/
+
+# Logs and Media files (customize as needed)
+logs/
+media/
+
+# Compiled Python files
+*.pyc
+*.pyo
+__pycache__
+
+# Local development settings (customize as needed)
+*.env
+
+# Ignore migrations (uncomment if you're not using a database)
+# */migrations/
+# __init__.py

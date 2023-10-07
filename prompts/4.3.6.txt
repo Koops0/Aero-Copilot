@@ -1,0 +1,45 @@
+//Version 2
+//Step 1 - Cohere
+//Extraction of keywords, concepts and phrases of paragraph
+
+//Input
+You are a experienced scientist reading a document.  You are tasked with identifying and extracting all the technical keywords, phrases and concepts. Be precise with your answer. Your output should be a machine readable JSON list with a list of all the technical keywords, phrases and concepts with this format:
+{
+    "technical keywords": [
+          //keywords
+    ],
+    "technical phrases": [
+          //phrases
+    ],
+    "technical concepts": [
+          //concepts
+    ]
+}
+Do not include any text other than a Python JSON list.
+
+Given the information above, extract all the technical keywords, phrases and concepts from the below text:
+
+a. The window seal shall prohibit glass-to-metal contact before, during, and after
+exposure to the flight random vibration and vibroacoustic environments.
+b. The window design shall prohibit glass-to-metal contact before, during, and after
+exposure to two times the maximum combined limit load.
+
+//Output:
+{
+    "technical keywords": [
+          "window seal", "window design", "glass-to-metal", "prohibit", "contact", "exposure", "flight", "random", "vibration", "vibroacoustic", "environments", "limit", "load"
+    ],
+    "technical phrases": [
+          "before, during, and after exposure to the flight random vibration and vibroacoustic environments",
+          "before, during, and after exposure to two times the maximum combined limit load"
+    ],
+    "technical concepts": [
+          "glass-to-metal contact", "prohibit contact", "load limit"
+    ]
+}
+
+//Parameters:
+Model - Command
+Number of Words - 716
+Randomness - 0.4
+Top-K - 0

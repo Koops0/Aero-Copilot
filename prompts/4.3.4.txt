@@ -1,0 +1,54 @@
+//Version 2
+//Step 1 - Cohere
+//Extraction of keywords, concepts and phrases of paragraph
+
+//Input
+You are a experienced scientist reading a document.  You are tasked with identifying and extracting all the technical keywords, phrases and concepts. Be precise with your answer. Your output should be a machine readable JSON list with a list of all the technical keywords, phrases and concepts with this format:
+{
+    "technical keywords": [
+          //keywords
+    ],
+    "technical phrases": [
+          //phrases
+    ],
+    "technical concepts": [
+          //concepts
+    ]
+}
+Do not include any text other than a Python JSON list.
+
+Given the information above, extract all the technical keywords, phrases and concepts from the below text:
+
+The flight or mission environment presents hazards, such as released shards or cracking
+resulting from impacts on glass or ceramics, to crew safety and the structural integrity of the
+vehicle/element.
+a. All structural glass and non-structural glass or ceramic components exposed to tool
+impact, e.g., the component design permits contact with the brittle material surface, shall not
+create a hazardous condition when impacted.
+b. All sources of potential impacts shall be considered, including but not limited to
+MM/OD impacts, intravehicular activity (IVA) and extravehicular activity (EVA) inadvertent
+contacts, IVA and EVA tool impact hazards, and launch debris impacts.
+c. If these requirements cannot be positively demonstrated, then appropriate hazard
+controls shall be implemented.
+
+//Output:
+{
+    "technical keywords": [
+          "flight", "mission", "hazards", "released shards", "cracking", "crew", "safety",
+          "vehicle", "element", "structural integrity", "glass", "ceramics", "components",
+          "exposed", "tool impact", "hazardous condition", "MM/OD", "intravehicular activity",
+          "extravehicular activity", "launch debris"
+    ],
+    "technical phrases": [
+          "shall not create a hazardous condition when impacted", "all sources of potential impacts shall be considered"
+    ],
+    "technical concepts": [
+          "impact hazards"
+    ]
+}
+
+//Parameters:
+Model - Command
+Number of Words - 716
+Randomness - 0.4
+Top-K - 0

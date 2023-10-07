@@ -1,0 +1,73 @@
+//Version 2
+//Step 1 - Cohere
+//Extraction of keywords, concepts and phrases of paragraph
+
+//Input
+You are a experienced scientist reading a document.  You are tasked with identifying and extracting all the technical keywords, phrases and concepts. Be precise with your answer. Your output should be a machine readable JSON list with a list of all the technical keywords, phrases and concepts with this format:
+{
+    "technical keywords": [
+          //keywords
+    ],
+    "technical phrases": [
+          //phrases
+    ],
+    "technical concepts": [
+          //concepts
+    ]
+}
+Do not include any text other than a Python JSON list.
+
+Given the information above, extract all the technical keywords, phrases and concepts from the below text:
+
+a. All vehicle/element windows shall be designed to maintain the structural and
+functional integrity of the window during all appropriate design environments after an impact
+event.
+b. The damaged structural glass or ceramic structure shall maintain a margin of safety of
+0.0 or greater for the duration of the mission being assessed.
+c. The damaged structural glass or ceramic component shall have sufficient remaining
+life to allow repair or replacement of the damaged part without loss of mission.
+
+//Output:
+{
+    "technical keywords": [
+          "vehicle",
+          "element",
+          "window",
+          "structural",
+          "functional",
+          "integrity",
+          "impact",
+          "event",
+          "glass",
+          "ceramic",
+          "structure",
+          "margin",
+          "safety",
+          "duration",
+          "mission",
+          "assessment",
+          "component",
+          "life",
+          "repair",
+          "replacement",
+          "loss",
+          "mission"
+    ],
+    "technical phrases": [
+          "design environments",
+          "after an impact event",
+          "remaining life to allow repair or replacement of the damaged part without loss of mission"
+    ],
+    "technical concepts": [
+          "design",
+          "safety",
+          "life",
+          "mission"
+    ]
+}
+
+//Parameters:
+Model - Command
+Number of Words - 716
+Randomness - 0.4
+Top-K - 0

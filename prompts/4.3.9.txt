@@ -1,0 +1,42 @@
+//Version 2
+//Step 1 - Cohere
+//Extraction of keywords, concepts and phrases of paragraph
+
+//Input
+You are a experienced scientist reading a document.  You are tasked with identifying and extracting all the technical keywords, phrases and concepts. Be precise with your answer. Your output should be a machine readable JSON list with a list of all the technical keywords, phrases and concepts with this format:
+{
+    "technical keywords": [
+
+    ],
+    "technical phrases": [
+
+    ],
+    "technical concepts": [
+
+    ]
+}
+Do not include any text other than a Python JSON list.
+
+Given the information above, extract all the technical keywords, phrases and concepts from the below text:
+
+The glass component design shall be assessed for all combined loads that can occur.
+The combined loads may be applied in a time-consistent manner
+
+//Output:
+{
+    "technical keywords": [
+        "glass component", "design", "assess", "combined loads", "time-consistent"
+    ],
+    "technical phrases": [
+        "glass component design shall be assessed for all combined loads that can occur"
+    ],
+    "technical concepts": [
+        "combined loading"
+    ]
+}
+
+//Parameters:
+Model - Command
+Number of Words - 716
+Randomness - 0.4
+Top-K - 0

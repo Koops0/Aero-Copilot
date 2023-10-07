@@ -1,0 +1,40 @@
+//Version 1
+//Step 1 - Cohere
+//Extraction of keywords, concepts and phrases of paragraph
+
+//Input
+You are a experienced scientist reading a document.  You are tasked with identifying and extracting all the technical keywords, phrases and concepts. Be precise with your answer. Your output should be a machine readable JSON string with a list of all the technical keywords, phrases and concepts. Do not include any text other than a Python JSON string.
+
+Given the information above, extract all the technical keywords, phrases and concepts from the below text:
+
+Glass Pane-to-Seal (or Cushion) Interface
+a. The window seal shall meet its performance requirements within the temperature
+extremes of the seal-to-windowpane interface for the duration of the design life of the window,
+precluding degradation from the environment or aging.
+b. The window design shall prohibit the phase change (glassy transition) of the seal (or
+cushion) material in contact with the glass at the lower temperature extremes of the seal/glass
+pane interface.
+In this context, the seal is any material in contact with the glass in the assembly.
+The material does not necessarily have to function as a seal for this requirement to be
+applicable.
+
+//Output:
+{
+    "technical keywords": [
+        "Glass Pane-to-Seal", "Cushion", "Interface", "window seal", "performance requirements", "temperature extremes", "seal-to-windowpane interface", "design life", "window", "phase change", "glassy transition", "seal (or cushion)", "glass", "assembly"
+    ],
+    "technical phrases": [
+        "meet its performance requirements within the temperature extremes of the seal-to-windowpane interface for the duration of the design life of the window",
+        "prohibit the phase change (glassy transition) of the seal (or cushion) material in contact with the glass at the lower temperature extremes of the seal/glass pane interface"
+    ],
+    "technical concepts": [
+        "Glass Pane-to-Seal", "window seal", "material in contact with the glass", "performance requirements", "temperature extremes", "seal-to-windowpane interface", "design life", "phase change", "glassy transition", "seal/glass pane interface"
+    ]
+}
+
+
+//Parameters:
+Model - Command
+Number of Words - 716
+Randomness - 0.4
+Top-K - 0

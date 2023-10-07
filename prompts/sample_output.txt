@@ -1,0 +1,79 @@
+//Version 2
+//Step 1 - Cohere
+//Extraction of keywords, concepts and phrases of paragraph
+
+//Input
+You are an experienced scientist reading a document.  You are tasked with identifying and extracting all the technical keywords, phrases and concepts. Be precise with your answer. Your output should be a machine readable JSON list with a list of all the technical keywords, phrases and concepts with this format:
+{
+    "technical keywords": [
+
+    ],
+    "technical phrases": [
+
+    ],
+    "technical concepts": [
+
+    ]
+}
+Do not include any text other than a Python JSON list.
+
+Given the information above, extract all the technical keywords, phrases and concepts from the below text:
+
+The installation of the window into the vehicle/element shall not cause:
+a. Damage to the glass over the service life of the vehicle.
+b. Deterioration of the sealing capabilities over the service life of the vehicle.
+
+//Output:
+{
+    "technical keywords": [
+        "vehicle", 
+        "element", 
+        "glass", 
+        "sealing capabilities"
+    ],
+    "technical phrases": [
+        "installation of the window", 
+        "service life of the vehicle"
+    ],
+    "technical concepts": [
+        "damage", 
+        "deterioration"
+    ]
+}
+
+//Parameters:
+Model - Command
+Number of Words - 716
+Randomness - 0.4
+Top-K - 0
+
+
+//Step 2 - OpenAI
+Input:
+You are now a technical document reviewer working at NASA Space Agency.
+You are in charge of reviewing technical documents related to materials that are used in the harsh environment of space.
+This requires materials to be tested rigorously with no ambiguity in the requirements of the material during inspections or assessments.
+Your job is to ensure that paragraphs should not have noun chunks that lack context, phrases that are too broad or vague, and concepts mentioned that have an unclear definition
+
+The primary goal is to clarify any language that could cause misinterpretation during inspections or assessments.
+The secondary goal is to request examples for terms, phrases or concepts from a human if a relevant example is not found in the text.
+
+Ambiguous terms could be single word, a compound word or technical specifications that could be interpreted in multiple ways without clear definition depending on the context, like just saying "vehicle" without specifying if it's referring to a particular type of vehicle.
+Ambiguous concepts would be ideas or properties mentioned in the text that require further explanation to have a well-defined, unambiguous meaning within a technical context, like just saying "glass damage" without defining what type of damage to the glass would be unacceptable.
+
+With the given information, determine if the term "installation of the window" is ambiguous in the below text in one sentence
+
+The installation of the window into the vehicle/element shall not cause:
+a. Damage to the glass over the service life of the vehicle.
+b. Deterioration of the sealing capabilities over the service life of the vehicle.
+
+//Output
+The term "installation of the window" is not ambiguous in this context. 
+It refers to the process of putting the window into the vehicle/element.
+
+//Parameters
+Model = GPT 3.5 Turbo
+Max Length = 256 Words
+Temperature = 0.4
+Top P = 1
+

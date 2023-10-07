@@ -1,5 +1,7 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
+import Head from "next/head"
+import NextTopLoader from "nextjs-toploader"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -7,6 +9,11 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
+
+import "@aws-amplify/ui-react/styles.css"
+import { Authenticator } from "@aws-amplify/ui-react"
+
+import "@aws-amplify/ui-react/styles.css"
 
 export const metadata: Metadata = {
   title: {
@@ -33,19 +40,23 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
         <body
           className={cn(
-            "h-screen min-h-screen w-screen min-w-screen bg-background font-sans antialiased",
+            "min-w-screen h-screen min-h-screen w-screen bg-background font-sans antialiased",
             fontSans.variable
           )}
         >
+          <NextTopLoader />
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen w-screen min-w-screen flex-col">
+            <div className="min-w-screen relative flex min-h-screen w-screen flex-col">
               <SiteHeader />
-              <div className="h-full flex-1 justify-center items-center">
-                {children}
-                </div>
+              {/* <Authenticator>
+                {({ signOut, user }) => ( */}
+                  <div className="h-full flex-1 items-center justify-center">
+                    {children}
+                  </div>
+                {/* )}
+              </Authenticator> */}
             </div>
             <TailwindIndicator />
           </ThemeProvider>

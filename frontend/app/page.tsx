@@ -10,14 +10,14 @@ import { Textarea } from "@/components/ui/textarea"
 export default function DashboardPage() {
   return (
     <main className="h-full w-full items-center bg-white">
-      <section className=" float-left h-full w-3/4 bg-red-500">
-        <Label htmlFor="pdf-text">Text of your PDF</Label>
-        <Textarea id="pdf-text" className="" disabled />
-      </section>
-      <aside className=" float-right flex h-full w-1/4 flex-col justify-between bg-blue-500 ">
+      <aside className="top-50 sticky z-20 float-right flex h-full w-full justify-between bg-blue-500 lg:w-1/4  lg:flex-col">
         <div className="">Suggestions</div>
         <div>Definitions</div>
       </aside>
+      <section className=" float-left    h-[100vh] w-full bg-red-500 lg:w-3/4">
+        <Label htmlFor="pdf-text">Text of your PDF</Label>
+        <Textarea id="pdf-text" className="max-h-full max-w-full" disabled />
+      </section>
     </main>
   )
 }

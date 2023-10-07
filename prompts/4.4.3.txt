@@ -19,24 +19,22 @@ Do not include any text other than a Python JSON list.
 
 Given the information above, extract all the technical keywords, phrases and concepts from the below text:
 
-Tempered glass shall be designed to a minimum ultimate factor of safety of 3.0 applied to the
-maximum combined limit load (section 4.3.9 of this Standard).
+The potential for dynamic amplification of the load in the event of a pressure pane failure exists.
+a. A dynamic amplification factor of at least 2.0 shall be applied to the combined load
+(section 4.3.9 of this Standard) for the assessment of a pressure pane failure event.
+b. If specifically measured during a dynamic redundancy test, the dynamic amplification
+factor for analysis shall be the measured value in lieu of section 4.4.3.a of this Standard.
 
-
-//Output:
+//Output
 {
     "technical keywords": [
-        "Tempered glass",
-        "ultimate factor of safety",
-        "design",
-        "minimum",
-        "combined limit load"
+        "dynamic", "amplification", "factor", "pressure", "pane", "failure", "event", "assessment", "standard"
     ],
     "technical phrases": [
-        "to a minimum ultimate factor of safety of 3.0 applied to the"
+        "dynamic amplification factor", "pressure pane failure event", "dynamic redundancy test"
     ],
     "technical concepts": [
-        "glass"
+        "apply", "measure", "analyze"
     ]
 }
 

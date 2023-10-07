@@ -19,27 +19,22 @@ Do not include any text other than a Python JSON list.
 
 Given the information above, extract all the technical keywords, phrases and concepts from the below text:
 
-Tempered glass shall be designed to a minimum ultimate factor of safety of 3.0 applied to the
-maximum combined limit load (section 4.3.9 of this Standard).
-
+A life factor of 4 shall be applied to the design life to account for scatter
 
 //Output:
 {
     "technical keywords": [
-        "Tempered glass",
-        "ultimate factor of safety",
-        "design",
-        "minimum",
-        "combined limit load"
+        "life factor",
+        "design life",
+        "scatter"
     ],
     "technical phrases": [
-        "to a minimum ultimate factor of safety of 3.0 applied to the"
+        "apply to the design life to account for scatter"
     ],
     "technical concepts": [
-        "glass"
+
     ]
 }
-
 //Parameters:
 Model - Command
 Number of Words - 716

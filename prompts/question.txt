@@ -1,0 +1,3 @@
+The installation of the window into the vehicle/element shall not cause:
+a. Damage to the glass over the service life of the vehicle.
+b. Deterioration of the sealing capabilities over the service life of the vehicle.

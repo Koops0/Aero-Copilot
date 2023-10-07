@@ -25,3 +25,13 @@ class DynamoDB:
                 ":sk": file_name + "-full_text",
             },
         )
+
+    @staticmethod
+    def queryDefinition(file_name, user_id):
+        return DynamoDB.table.query(
+            KeyConditionExpression="partition_key = :pk and sort_id = :sk",
+            ExpressionAttributeValues={
+                ":pk": user_id,
+                ":sk": file_name + "-definitions",
+            },
+        )

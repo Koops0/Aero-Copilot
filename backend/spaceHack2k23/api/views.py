@@ -23,6 +23,14 @@ class DataView(APIView):
         return JsonResponse(response, status=status.HTTP_200_OK)
 
 
+class DefinitionsView(APIView):
+    def get(self, request):
+        key = request.query_params["key"]
+        user_id = request.query_params["user_id"]
+        response = DynamoDB.queryDefinition(key, user_id)
+        return JsonResponse(response, status=status.HTTP_200_OK)
+
+
 class ProcessSubsectionView(APIView):
     def post(self, request):
         file_name = request.data["file_name"]

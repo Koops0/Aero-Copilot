@@ -1,18 +1,17 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
+  // TODO: replace with name of the project
+  name: "STAR",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "STAR project for 2023 Space Apps Challenge. A web app that allows users to improve their documents.",
   mainNav: [
     {
-      title: "Home",
+      title: "StarAi",
       href: "/",
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
+    github: "https://github.com/Koops0/SpaceHack2K23-STAR",
   },
 }

@@ -36,14 +36,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "h-screen min-h-screen w-screen min-w-screen bg-background font-sans antialiased",
             fontSans.variable
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
+            <div className="relative flex min-h-screen w-screen min-w-screen flex-col">
               <SiteHeader />
-              <div className="h-full flex-1 ">{children}</div>
+              <div className="h-full flex-1 justify-center items-center">
+                {children}
+                </div>
             </div>
             <TailwindIndicator />
           </ThemeProvider>

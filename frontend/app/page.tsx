@@ -3,20 +3,36 @@
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import  Index  from "@/components/index"
+import Sidebar from "@/components/sidebar"
 
 export default function DashboardPage() {
   return (
-    <main className="h-full w-full items-center bg-white">
-      <aside className="top-50 sticky z-20 float-right flex h-full w-full justify-between bg-blue-500 lg:w-1/4  lg:flex-col">
-        <div className="">Suggestions</div>
-        <div>Definitions</div>
-      </aside>
-      <section className=" float-left    h-[100vh] w-full bg-red-500 lg:w-3/4">
-        <Label htmlFor="pdf-text">Text of your PDF</Label>
-        <Textarea id="pdf-text" className="max-h-full max-w-full" disabled />
+    <main className="flex h-full w-full flex-col items-center justify-center gap-5  lg:flex-row">
+      <Sidebar/>
+      <section className="h-full max-h-[75vh]  w-full lg:w-3/4">
+        <Card className="h-full bg-secondary ">
+          <CardHeader>
+            <CardTitle className="flex flex-row justify-between">
+              <p>Your Text</p>
+              <Index/>
+            </CardTitle>
+            <CardDescription>Text from the PDF</CardDescription>
+          </CardHeader>
+          <Textarea
+            id="pdf-text"
+            className="box-border max-h-[75vh] max-w-full h-[75vh]"
+          />
+        </Card>
       </section>
     </main>
   )

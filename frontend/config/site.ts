@@ -17,6 +17,10 @@ export const siteConfig = {
     {
       title: "STAR_Ai",
       href: "/",
+    },
+    {
+      title: "Demo",
+      href: "/demo",
     }
   ],
   links: {

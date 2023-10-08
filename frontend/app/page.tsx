@@ -1,28 +1,20 @@
 "use client"
 
-import Link from "next/link"
-import { Authenticator } from "@aws-amplify/ui-react"
-import { Amplify, Auth } from "aws-amplify"
-import { Car } from "lucide-react"
+import { Amplify } from "aws-amplify"
 
 import awsExports from "@/config/aws-export"
-import { siteConfig } from "@/config/site"
-import { Button, buttonVariants } from "@/components/ui/button"
 import {
   Card,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import Index from "@/components/index"
-import Sidebar from "@/components/sidebar"
-import { ThemeProvider } from "@/components/theme-provider"
 import { useRouter } from "next/navigation";
-import RootLayout from "./layout"
 import { Document_URL } from "@/data/constants"
 import { useState, useEffect } from "react"; // Import useState and useEffect
+import { FileText } from "lucide-react";
+
+
+
 
 Amplify.configure(awsExports)
 
@@ -54,30 +46,48 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <main className="flex h-full w-full flex-col items-center justify-around gap-5 lg:flex-row">
-      {loading ? (
-        <div className="flex items-center justify-center w-full h-full">
-          <div className="text-center">
-            <p>Loading...</p>
-            <div className="loader"></div> {/* Circular loading indicator */}
+    <main className="flex h-full w-full flex-row items-center justify-around gap-5 lg:flex-col">
+
+      <h1 className="text-3xl font-bold">PDF Documents</h1>
+      {/* new line */}
+      <p className="text-xl font-bold">Click on a document to view it</p>
+
+
+      <div className="flex h-full w-full flex-col items-center justify-around gap-5 lg:flex-row">
+
+
+        {loading ? (
+          <div className="flex items-center justify-center w-full h-full">
+            <div className="text-center">
+              <p>Loading...</p>
+              <div className="loader"></div> {/* Circular loading indicator */}
+            </div>
           </div>
-        </div>
-      ) : (
-        listOfPdfs.map((pdfFileName) => (
-          <Card
-            className="w-[30%] bg-secondary cursor-pointer"
-            onClick={() => handleCardClick(pdfFileName)}
-            key={pdfFileName}
-          >
-            <CardHeader>
-              <CardTitle className="flex flex-row justify-between">
-                {pdfFileName}
-              </CardTitle>
-              {/* Add any additional information you want to display */}
-            </CardHeader>
-          </Card>
-        ))
-      )}
+        ) :
+
+
+          (
+
+
+            listOfPdfs.map((pdfFileName) => (
+              <Card
+                className="w-[30%] bg-secondary cursor-pointer"
+                onClick={() => handleCardClick(pdfFileName)}
+                key={pdfFileName}
+              >
+
+                <CardHeader>
+                  <CardTitle className="flex flex-row items-center gap-5">
+                    <FileText size={29} />
+                    {pdfFileName}
+                  </CardTitle>
+                  {/* Add any additional information you want to display */}
+                </CardHeader>
+              </Card>
+            ))
+          )
+        }
+      </div>
     </main>
   );
 }

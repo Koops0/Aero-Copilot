@@ -37,7 +37,7 @@ const Sidebar = () => {
       <Card className="w-1/2 h-full lg:h-1/3 lg:w-full p-5">
         <CardTitle>Definitions</CardTitle>
         <CardContent className="h-full overflow-y-auto">
-        {/* <ScrollArea className="max-h-[15vh]"> */}
+          {/* <ScrollArea className="max-h-[15vh]"> */}
           {Object.entries(definitions.definitions).map(([key, content]) => (
             <>
               <div key={key}>
@@ -46,7 +46,7 @@ const Sidebar = () => {
               <Separator className="my-2" />
             </>
           ))}
-        {/* </ScrollArea> */}
+          {/* </ScrollArea> */}
         </CardContent>
       </Card>
       {/* <Card className="w-1/3 h-full lg:h-1/3 lg:w-full p-5 ">

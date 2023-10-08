@@ -56,7 +56,12 @@ export default function DashboardPage() {
   return (
     <main className="flex h-full w-full flex-col items-center justify-around gap-5 lg:flex-row">
       {loading ? (
-        <p>Loading...</p>
+        <div className="flex items-center justify-center w-full h-full">
+          <div className="text-center">
+            <p>Loading...</p>
+            <div className="loader"></div> {/* Circular loading indicator */}
+          </div>
+        </div>
       ) : (
         listOfPdfs.map((pdfFileName) => (
           <Card

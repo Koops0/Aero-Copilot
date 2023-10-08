@@ -18,9 +18,9 @@ import {
   SheetTrigger,
 } from "./ui/sheet"
 
-const Index: React.FC = () => {
+const Index: React.FC<any> = ({ data }) => {
 
-  
+  console.log(data.data)
   return (
     <Sheet>
       <SheetTrigger>
@@ -31,12 +31,12 @@ const Index: React.FC = () => {
           <SheetTitle>INDEX</SheetTitle>
           <SheetDescription>
             <Accordion type="single" collapsible>
-              {Object.entries(tableOfContents.data).map(
+              {Object.entries(data.data).map(
                 ([section, details]) => (
                   <AccordionItem value={section}>
                     <AccordionTrigger>{section}</AccordionTrigger>
                     <AccordionContent>
-                      {Object.entries(details).map(([key, value]) => (
+                      {Object.entries(details as { [key: string]: unknown }).map(([key, value]) => (
                         <div>{key}</div>
                       ))}
                     </AccordionContent>

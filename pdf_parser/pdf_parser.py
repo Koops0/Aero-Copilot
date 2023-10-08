@@ -85,15 +85,49 @@ def split_text_by_sections(output_data: dict, section_id_info: dict):
         matches = re.findall(regex, text_as_string, re.MULTILINE | re.DOTALL)
         final_output[temp_for_display] = matches[1].strip()
         temp_for_display = blah
-    return final_output
+
+    final_output = unflatten(final_output)
+
+    final_final_output = {}
+    for key, section in final_output.items():
+        temp_data = {}
+        header = ""
+        section_id = key
+        for key1, subsection in section.items():
+            if key1.startswith(' '):
+                header = f"{section_id} -- {key1.strip()}"
+            else:
+                regex = r"\s?(\d+)\s?(.*)"
+                matches = re.findall(regex, key1, re.MULTILINE)
+
+                subheader_id = matches[0][0]
+                subheader_text = matches[0][1]
+                temp = f"{section_id}.{subheader_id} -- {subheader_text}"
+                temp_data[temp.title()] = subsection
+        final_final_output[header.title()] = temp_data
+
+    return final_final_output
+
+
+def drop_unnecessary_sections(section_text_dict: dict, sections_to_drop: list) -> dict:
+    final_dict = {}
+    for key, value in section_text_dict.items():
+        for section in sections_to_drop:
+            if section in key.strip().lower() :
+                break
+        else:
+            final_dict[key] = value
+    return final_dict
 
 
 def extract_definitions(section_data: dict) -> dict:
     final_dict = {}
-    for key, value in section_data.items():
-        if 'Definitions' in key:
+    for key, definition_data in section_data.items():
+        if 'definitions' in key.lower():
+            text_as_string = "\n".join([value for _, value in definition_data.items()])
+
             regex = r"^(.*):"
-            matches = re.findall(regex, value, re.MULTILINE)
+            matches = re.findall(regex, text_as_string, re.MULTILINE)
 
             temp = None
             for definition in matches:
@@ -106,16 +140,22 @@ def extract_definitions(section_data: dict) -> dict:
                 v2 = definition.replace('(', r'\(').replace(')', '\)')
                 regex = rf"{v1}:(.*){v2}:"
 
-                matches = re.findall(regex, value, re.MULTILINE | re.DOTALL)
-                print(regex)
-                print(matches)
-                final_dict[temp] = matches[0].strip()
+                matches = re.findall(regex, text_as_string, re.MULTILINE | re.DOTALL)
+
+                value = matches[0].strip().replace('\n',' ')
+                value = re.sub(r"\s\s+", " ", value)
+
+                final_dict[temp] = value
                 temp = definition
 
             regex = rf"{temp}:(.*)"
 
-            matches = re.findall(regex, value, re.MULTILINE | re.DOTALL)
-            final_dict[temp] = matches[0].strip()
+            matches = re.findall(regex, text_as_string, re.MULTILINE | re.DOTALL)
+
+            value = matches[0].strip().replace('\n', ' ')
+            value = re.sub(r"\s\s+", " ", value)
+
+            final_dict[temp] = value
     return final_dict
 
 

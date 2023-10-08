@@ -135,6 +135,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AWS_STORAGE_TABLE_NAME = config("AWS_STORAGE_TABLE_NAME")
 AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
+OPEN_AI_KEY = config("OPEN_AI_KEY")
+COHERE_KEY = config("COHERE_KEY")
 
 # Storage settings
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"

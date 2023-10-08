@@ -34,7 +34,7 @@ export function SiteHeader({ signOut, user }) {
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
-            <Button onClick={signOut} />
+            <Button variant={"destructive"} onClick={signOut} >Log Out</Button>
 
             <ThemeToggle />
           </nav>

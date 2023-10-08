@@ -17,8 +17,14 @@ import Sidebar from "@/components/sidebar"
 import { Authenticator } from "@aws-amplify/ui-react"
 import { Definition_URL, Document_URL } from "@/data/constants"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { ReactNode, useEffect, useState } from "react"
 import { log } from "console"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export default function AiPage() {
   // create a get request to the api to get the text from the pdf https://k1yi2zozfg.execute-api.us-east-1.amazonaws.com/nasa/definitions/file_name1
@@ -36,10 +42,7 @@ export default function AiPage() {
     fetch(Document_URL + fileName)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Data fetched");
-        console.log(data);
         setPdfText(data);
-        setLoading(false);
 
 
       })
@@ -50,10 +53,12 @@ export default function AiPage() {
     fetch(Definition_URL + fileName)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Data fetched");
-        console.log(data);
         setlistOfDefinitions(data);
-        setLoading(false);
+
+        //wait for 10 seconds
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
 
 
       })
@@ -77,19 +82,27 @@ export default function AiPage() {
           </div>
         </div>
       ) : (
-        <><Sidebar /><section className="h-full max-h-[75vh]  w-full lg:w-3/4">
+
+        <><Sidebar data={listOfDefinitions} /><section className="h-full max-h-[75vh]  w-full ">
+
           <Card className="h-full bg-secondary ">
             <CardHeader>
               <CardTitle className="flex flex-row justify-between">
                 <p>Your Text</p>
+                {/* check loading here as well */}
+
                 <Index data={pdfText} />
               </CardTitle>
               <CardDescription>Text from the PDF</CardDescription>
             </CardHeader>
-            <Textarea
-              id="pdf-text"
-              className="box-border h-[75vh] max-h-[75vh] max-w-full"
-              value={pdfText} />
+
+            <div className="flex flex-col items-center justify-center h-full">
+              <Card>
+
+
+              </Card>
+
+            </div>
           </Card>
         </section></>
       )}

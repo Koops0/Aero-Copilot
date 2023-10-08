@@ -18,7 +18,11 @@ import {
   SheetTrigger,
 } from "./ui/sheet"
 
+
+
 const Index: React.FC<any> = ({ data }) => {
+
+  const [loadedData, setloadedData] = React.useState(data)
 
   console.log(data.data)
   return (

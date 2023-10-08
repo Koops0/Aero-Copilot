@@ -16,7 +16,6 @@ import "@aws-amplify/ui-react/styles.css"
 import { Authenticator } from "@aws-amplify/ui-react"
 
 import "@aws-amplify/ui-react/styles.css"
-import { sign } from "crypto"
 
 interface RootLayoutProps {
   children: React.ReactNode

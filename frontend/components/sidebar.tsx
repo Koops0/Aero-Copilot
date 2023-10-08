@@ -1,22 +1,22 @@
 import definitions from "@/data/definitions.js"
 
-import { Card, CardContent, CardDescription, CardTitle } from "./ui/card"
-import { ScrollArea } from "./ui/scroll-area"
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "./ui/sheet"
-import { Textarea } from "./ui/textarea"
 import { Separator } from "@/components/ui/separator"
 
+import { Card, CardContent, CardDescription, CardTitle } from "./ui/card"
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { useEffect } from "react"
+
+
 const Sidebar = () => {
-  fetch(
-    "https://k1yi2zozfg.execute-api.us-east-1.amazonaws.com/nasa/definitions/file_name1"
-  ).then((res) => console.log(res))
+
   return (
     <aside className=" flex h-full lg:h-[80vh] gap-10 w-full justify-evenly bg-primary-foreground lg:w-1/4 lg:flex-col">
       <Card className="w-1/3 h-full lg:h-1/3 lg:w-full p-5">
@@ -37,16 +37,24 @@ const Sidebar = () => {
       <Card className="w-1/2 h-full lg:h-1/3 lg:w-full p-5">
         <CardTitle>Definitions</CardTitle>
         <CardContent className="h-full overflow-y-auto">
-        {/* <ScrollArea className="max-h-[15vh]"> */}
+          {/* <ScrollArea className="max-h-[15vh]"> */}
           {Object.entries(definitions.definitions).map(([key, content]) => (
             <>
-              <div key={key}>
-                <span className="underline text-indigo-500 decoration-indigo-500">{key}:</span> {content}
-              </div>
+              <Dialog>
+                <DialogTrigger>{key}</DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>{key}</DialogTitle>
+                    <DialogDescription>
+                      {content as string}
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
               <Separator className="my-2" />
             </>
           ))}
-        {/* </ScrollArea> */}
+          {/* </ScrollArea> */}
         </CardContent>
       </Card>
       {/* <Card className="w-1/3 h-full lg:h-1/3 lg:w-full p-5 ">

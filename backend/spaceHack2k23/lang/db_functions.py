@@ -3,6 +3,8 @@ from langchain_coher import *
 from spaceHack2k23.dynamodb import DynamoDB
 
 
+
+# Check if definition exists in DynamoDB
 def checkDefinitionExists(file_name, user_id, json_string):
     response = DynamoDB.queryDefinition(file_name, user_id)
     # Parse the JSON string to a Python JSON object

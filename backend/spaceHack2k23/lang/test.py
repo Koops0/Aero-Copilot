@@ -9,6 +9,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import OpenAI
 from langchain.output_parsers import RegexParser
+import openai
 
 loader = DirectoryLoader(f'docs', glob="./*.pdf", loader_cls=PyPDFLoader)
 documents = loader.load()
@@ -61,3 +62,20 @@ def getanswer(query):
         text_reference+=results["input_documents"][i].page_content
     output={"Answer":results["output_text"],"Reference":text_reference}
     return output
+
+
+def getanswerOpenAI(query, context):
+    # Define the prompt including context and question
+    prompt = f"Context:\n{context}\n\nQuestion: {query}"
+
+    # Call the OpenAI API
+    response = openai.Completion.create(
+        engine="davinci",  # Choose the appropriate engine (e.g., "davinci" for GPT-3, "text-davinci-003" for GPT-4)
+        prompt=prompt,
+        max_tokens=50,  # Adjust as needed
+        stop=None,  # You can specify stop words if necessary
+    )
+
+    # Extract and return the answer from the response
+    answer = response.choices[0].text.strip()
+    return {"Answer": answer}

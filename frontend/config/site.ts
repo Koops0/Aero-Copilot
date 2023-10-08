@@ -15,7 +15,7 @@ export const siteConfig = {
       href: "/upload",
     },
     {
-      title: "STAR_Ai",
+      title: "AI",
       href: "/",
     },
     {

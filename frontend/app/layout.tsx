@@ -50,13 +50,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="min-w-screen relative flex min-h-screen w-screen flex-col">
               <SiteHeader />
-              {/* <Authenticator>
-                {({ signOut, user }) => ( */}
                   <div className="h-full flex-1 items-center justify-center">
                     {children}
                   </div>
-                {/* )}
-              </Authenticator> */}
             </div>
             <TailwindIndicator />
           </ThemeProvider>

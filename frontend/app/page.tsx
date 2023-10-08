@@ -21,6 +21,7 @@ import Index from "@/components/index"
 import Sidebar from "@/components/sidebar"
 import { ThemeProvider } from "@/components/theme-provider"
 import { useRouter } from "next/navigation";
+import RootLayout from "./layout"
 
 Amplify.configure(awsExports)
 
@@ -32,10 +33,10 @@ export default function DashboardPage() {
     router.push(pdfId);
   };
   return (
-    <Authenticator>
-      {({ signOut, user }) => (
+
         <main className="flex h-full w-full flex-col items-center justify-around gap-5  lg:flex-row">
-          {/* for each pdf in the list of pdfs generate a card */}
+
+
           {listOfPdfs.map((pdf) => (
 
             <Card className="w-[30%] bg-secondary cursor-pointer " onClick={() => handleCardClick(pdf.title)}>
@@ -47,8 +48,7 @@ export default function DashboardPage() {
               </CardHeader>
             </Card>
           ))}
-        </main>
-      )}
-    </Authenticator>
+          </main>
+
   )
 }

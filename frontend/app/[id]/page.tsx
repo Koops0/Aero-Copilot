@@ -16,10 +16,16 @@ import Index from "@/components/index"
 import Sidebar from "@/components/sidebar"
 import {Authenticator} from "@aws-amplify/ui-react"
 
-export default function DashboardPage() {
+export default function AiPage() {
+  // create a get request to the api to get the text from the pdf https://k1yi2zozfg.execute-api.us-east-1.amazonaws.com/nasa/definitions/file_name1
+
+  const definitions = fetch("https://k1yi2zozfg.execute-api.us-east-1.amazonaws.com/nasa/definitions/file_name1");
+
+  console.log(definitions);
+
+
   return (
-    <Authenticator >
-      {({ signOut, user }) => (
+
         <main className="flex h-full w-full flex-col items-center justify-center gap-5  lg:flex-row">
           <Sidebar />
           <section className="h-full max-h-[75vh]  w-full lg:w-3/4">
@@ -38,7 +44,6 @@ export default function DashboardPage() {
             </Card>
           </section>
         </main>
-      )}
-    </Authenticator>
+      
   )
 }

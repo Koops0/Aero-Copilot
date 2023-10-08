@@ -11,6 +11,7 @@ import {
 import { Textarea } from "./ui/textarea"
 
 const Sidebar = () => {
+
   return (
     <aside className=" flex h-[40vh] lg:h-[80vh] gap-10 w-full justify-evenly bg-primary-foreground lg:w-1/4 lg:flex-col">
       <Card className="w-1/3 h-full lg:h-1/3 lg:w-full p-5">

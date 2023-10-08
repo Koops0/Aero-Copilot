@@ -25,7 +25,7 @@ const Sidebar: React.FC<SidebarProps> = ({ data }) => {
   return (
     <aside className=" flex h-full lg:h-[80vh] gap-10 w-full justify-evenly bg-primary-foreground lg:w-1/4 lg:flex-col">
 
-      <Card className="w-1/2 h-full lg:h-1/3 lg:w-full p-5">
+      <Card className="w-full h-full lg:h-full lg:w-full p-5">
         <CardTitle>Definitions</CardTitle>
         <CardContent className="h-full overflow-y-auto">
           {/* <ScrollArea className="max-h-[15vh]"> */}

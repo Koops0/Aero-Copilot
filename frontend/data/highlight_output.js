@@ -1,4 +1,4 @@
-export const highlightData = [
+const highlightData = [
     {
         "keyword": "performance requirements",
         "is_ambiguous": true,
@@ -35,3 +35,6 @@ export const highlightData = [
         "end": 64
     }
 ]
+
+
+export default highlightData;

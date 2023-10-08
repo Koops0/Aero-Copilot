@@ -4,7 +4,7 @@ import hljs from "highlight.js";
 import "highlight.js/styles/github.css";
 import demotext from "@/data/demo_content_text";
 // This is your JSON data
-import { highlightData } from "@/data/highlight_output";
+import  highlightData  from "@/data/highlight_output";
 
 export default function DemoPage() {
   const codeRef = useRef<HTMLModElement>(null);

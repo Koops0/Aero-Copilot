@@ -6,13 +6,14 @@
 ## Final Output
 <img src="screenshots/output.png" alt="System Architecture" width="600"/>
 
-## Premise
-In the aeronautics industry, a successful launch and project can represent a growth in reputation, innovation and gives an edge over others if the spacecraft is state of the art. However, failed launches and projects are equally detrimental. For small satellite projects, there has been a 41.3% failure rate for small-satellite projects over the course of 16 years, with a 24.2% total failure rate, 11% partial failure rate and a 6.1% launch failure rate[1]. Considering the rate is that high, all of us should try to limit this to a more reasonable rate, close to zero. But, there is a significant question that should be answered: How can we achieve a near zero percent failure rate? Well, we need to look at one of the main reasons why one can fail.
-
-For example, the propulsion system is a major contributor in the amount of failures, with the feeding system being responsible for around 65% of total propulsion failures[2]. We need to look up Section 6 of the NASA-STD-5012B to look at the standards for some pressurized parts of the system, like hydraulic pumps, bellows and combustion chambers. While the section is mostly clear, terms like “MDC loads” and “FOS” can be very ambiguous without context. As a result, many will fail unless they look up what it means, which wastes time and money on what matters most: making a successful launch. We, a group of six coders from Toronto, are here to introduce a new solution using the power of artificial intelligence (AI) and large language models (LLMs) to make building and testing a spacecraft easier for technicians by correcting and simplifying standards: the Aero CoPilot.
-
 ## Introduction
-The Aero CoPilot is a state-of-the-art document processing system backed by AI that streamlines and corrects technical documents so that NASA technicians can save time reading through documentation and focus on launching a successful spacecraft. This README file will serve as a comprehensive guide on how to use the tool. There will also be a brief overview of the product, how to set it up, a look at the functionality of the system and a roadmap. 
+Aero Copilot is a state-of-the-art document processing system backed by AI that streamlines and corrects technical documents so that NASA technicians can save time and money, so that they can focus on what really matters.
+
+The process of running this application is simple. After they log in, the user can upload a PDF that will be parsed by the backend and broken down into the sections and the sub-sections. We then store the definitions that are already defined in the document for the future where it can be used to reduce falsely flagged texts. Next, we feed each section into the LLM with a custom prompt that allows the LLM to analyze the text like a human would and flag the ambiguous texts.
+
+On a high level, we have used NextJS for the frontend, Python Flask for the API, AWS as the cloud provider and the Claude v2 model via AWS Bedrock as our trained LLM.
+
+To see the technical document that the team has produced, please click [here](https://docs.google.com/document/d/1aGVDmX8dsZxUEb_ebyPDwBwVycFrlNL57G3RcUGwQMw/edit?usp=sharing).
 
 
 ## Table of Contents

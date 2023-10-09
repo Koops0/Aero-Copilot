@@ -4,7 +4,7 @@
 <img src="screenshots/logo.png" alt="System Architecture" width="100"/>
 
 ## Final Output
-<img src="screenshots/output.png" alt="System Architecture" width="500"/>
+<img src="screenshots/output.png" alt="System Architecture" width="600"/>
 
 ## Premise
 In the aeronautics industry, a successful launch and project can represent a growth in reputation, innovation and gives an edge over others if the spacecraft is state of the art. However, failed launches and projects are equally detrimental. For small satellite projects, there has been a 41.3% failure rate for small-satellite projects over the course of 16 years, with a 24.2% total failure rate, 11% partial failure rate and a 6.1% launch failure rate[1]. Considering the rate is that high, all of us should try to limit this to a more reasonable rate, close to zero. But, there is a significant question that should be answered: How can we achieve a near zero percent failure rate? Well, we need to look at one of the main reasons why one can fail.
@@ -28,7 +28,7 @@ The Aero CoPilot is a state-of-the-art document processing system backed by AI t
 Aero CoPilot’s system architecture is built using a microservices architecture using Amazon Web Services (AWS), LangChain and OpenAI. The system architecture is as follows:
 
 
-<img src="screenshots/system.png" alt="System Architecture" width="500"/>
+<img src="screenshots/system.png" alt="System Architecture" width="600"/>
 
 From a Next.js Web Application, an HTTP request is thrown to AWS Lambda, where technician sign-up and verification is provided by AWS Cognito and the profile is then stored using DynamoDB. Once a technician uploads a PDF in the website, it gets transferred to an AWS S3 bucket, parses the document via AWS Textract, then it goes through two prompts via LangChain and OpenAI. The first prompt scrapes all technical keywords, phrases and concepts for checking if a term is ambiguous, then it compares with another DynamoDB database with definitions. The remaining terms are then checked with a second prompt, to see if the words can be clarified further based on the context given in the paragraph.
 

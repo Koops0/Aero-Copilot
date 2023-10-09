@@ -1,6 +1,10 @@
 # Aero CoPilot
 2023 NASA International Space Apps Challenge
-ADD PHOTOS HERE
+
+<img src="screenshots/logo.png" alt="System Architecture" width="100"/>
+
+## Final Output
+<img src="screenshots/output.png" alt="System Architecture" width="500"/>
 
 ## Premise
 In the aeronautics industry, a successful launch and project can represent a growth in reputation, innovation and gives an edge over others if the spacecraft is state of the art. However, failed launches and projects are equally detrimental. For small satellite projects, there has been a 41.3% failure rate for small-satellite projects over the course of 16 years, with a 24.2% total failure rate, 11% partial failure rate and a 6.1% launch failure rate[1]. Considering the rate is that high, all of us should try to limit this to a more reasonable rate, close to zero. But, there is a significant question that should be answered: How can we achieve a near zero percent failure rate? Well, we need to look at one of the main reasons why one can fail.

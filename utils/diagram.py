@@ -39,12 +39,12 @@ with Diagram(
 
     with Cluster("AI Services"):
         langchain = ECS("Langchain")
-        openai = ECS("OpenAI")
+        amazonBedrock = ECS("Amazon Bedrock")
 
         s3 - Edge(label="Data Processing", fontname="bold") >> langchain
         (
             langchain
             >> Edge(label="LLM Execution", style="bold", fontname="bold")
-            >> openai
+            >> amazonBedrock
         )
         langchain >> Edge(label="Data Storage", fontname="bold") >> dynamodb

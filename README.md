@@ -72,4 +72,6 @@ Aero CoPilot is licensed under the MIT License. Please review the license file f
 
 ## Special Thanks
 
-* [NASA](https://www.nasa.gov/)
+* [NASA](https://www.nasa.gov/), for creating this hackathon.
+
+Every other citation is in the report and the submission itself on the Space Apps Website.

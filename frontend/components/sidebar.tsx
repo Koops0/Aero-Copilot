@@ -27,6 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({ data }) => {
 
       <Card className="w-full h-full lg:h-full lg:w-full p-5">
         <CardTitle>Definitions</CardTitle>
+        <br />
         <CardContent className="h-full overflow-y-auto">
           {/* <ScrollArea className="max-h-[15vh]"> */}
           {Object.entries(data.definitions).map(([key, content]) => (
@@ -44,7 +45,9 @@ const Sidebar: React.FC<SidebarProps> = ({ data }) => {
               </Dialog>
               <Separator className="my-2" />
             </>
-          ))}
+          )
+
+          )}
           {/* </ScrollArea> */}
         </CardContent>
       </Card>

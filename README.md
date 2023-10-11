@@ -26,7 +26,7 @@ To see the technical document that the team has produced, please click [here](ht
 - [Special Thanks](#special-thanks)
 
 ## System Overview
-Aero Copilot’s system architecture is built using a microservices architecture using Amazon Web Services (AWS), LangChain and OpenAI. The system architecture is as follows:
+Aero Copilot’s system architecture is built using a microservices architecture using Amazon Web Services (AWS), LangChain and Claude, via Amazon Bedrock. The system architecture is as follows:
 
 
 <img src="screenshots/system.png" alt="System Architecture" width="600"/>

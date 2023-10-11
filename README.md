@@ -26,16 +26,16 @@ To see the technical document that the team has produced, please click [here](ht
 - [Special Thanks](#special-thanks)
 
 ## System Overview
-Aero CoPilot’s system architecture is built using a microservices architecture using Amazon Web Services (AWS), LangChain and OpenAI. The system architecture is as follows:
+Aero Copilot’s system architecture is built using a microservices architecture using Amazon Web Services (AWS), LangChain and OpenAI. The system architecture is as follows:
 
 
 <img src="screenshots/system.png" alt="System Architecture" width="600"/>
 
-From a Next.js Web Application, an HTTP request is thrown to AWS Lambda, where technician sign-up and verification is provided by AWS Cognito and the profile is then stored using DynamoDB. Once a technician uploads a PDF in the website, it gets transferred to an AWS S3 bucket, parses the document via AWS Textract, then it goes through two prompts via LangChain and OpenAI. The first prompt scrapes all technical keywords, phrases and concepts for checking if a term is ambiguous, then it compares with another DynamoDB database with definitions. The remaining terms are then checked with a second prompt, to see if the words can be clarified further based on the context given in the paragraph.
+From a Next.js Web Application, an HTTP request is thrown to AWS Lambda, where technician sign-up and verification is provided by AWS Cognito and the profile is then stored using DynamoDB. Once a technician uploads a PDF in the website, it gets transferred to an AWS S3 bucket, parses the PFD document, then it goes through LangChain and Amazon Bedrock, for each section. The custom prompt scrapes all technical keywords, phrases and concepts and checks if a term is ambiguous and should be clarified, by comparing with another DynamoDB database with definitions.. Finally, it will show the text with any ambiguous terms flagged, with additional details being provided to the technician at the bottom half of the website. This is what the expected output should be like:
 
 ## Getting Started
 
-To get started with Aero CoPilot, follow these steps:
+To get started with Aero Copilot, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Install the necessary dependencies as outlined in the project documentation. For this project, you'll need an AWS account, Python and Node.js.
@@ -43,7 +43,7 @@ To get started with Aero CoPilot, follow these steps:
 4. Install the packages that are going to be used in the project.
 5. Configure AWS services and environmental variables.
 
-You can now create an account and import a PDF to Aero CoPilot
+You can now create an account and import a PDF to Aero Copilot.
 
 ## User Guide
 
@@ -51,16 +51,16 @@ You can now create an account and import a PDF to Aero CoPilot
 - Uploading PDFs: Upload PDF documents via the user-friendly web interface.
 - Document Processing: AI-powered processing extracts text and generates suggestions.
 - Reviewing Suggestions: Users review and accept suggestions for document improvements.
-- Approval Workflow: An automated workflow, provided by AWS Step Functions, tracks and manages suggestion approval.
+- Approval Workflow: An automated workflow, possible provided by JIRA, tracks and manages suggestion approval.
 
 
 
 ## System Functionality
 
-- PDF Ingestion: PDF documents are ingested into AWS S3 bucket and processed using Amazon Textract.
-- AI Document Analysis: Textract analyzes technical PDFs, extracting content and identifying areas for improvement.
-- Suggestion Generation: Custom algorithms analyze Textract results to generate document improvement suggestions.
-- Workflow Automation: AWS Step Functions automate suggestion approval workflows.
+- PDF Ingestion: PDF documents are ingested into AWS S3 bucket and processed using a custom script
+- AI Document Analysis: LLM analyzes technical PDFs, extracting content and identifying areas for improvement.
+- Suggestion Generation: Custom algorithms analyze parsed results to generate document improvement suggestions.
+- Workflow Automation: Possibly via JIRA
 
 
 ## Contributing

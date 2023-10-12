@@ -31,7 +31,7 @@ Aero Copilot’s system architecture is built using a microservices architecture
 
 <img src="screenshots/system.png" alt="System Architecture" width="600"/>
 
-From a Next.js Web Application, an HTTP request is thrown to AWS Lambda, where technician sign-up and verification is provided by AWS Cognito and the profile is then stored using DynamoDB. Once a technician uploads a PDF in the website, it gets transferred to an AWS S3 bucket, parses the PFD document, then it goes through LangChain and Amazon Bedrock, for each section. The custom prompt scrapes all technical keywords, phrases and concepts and checks if a term is ambiguous and should be clarified, by comparing with another DynamoDB database with definitions.. Finally, it will show the text with any ambiguous terms flagged, with additional details being provided to the technician at the bottom half of the website. This is what the expected output should be like:
+From a Next.js Web Application, an HTTP request is thrown to AWS Lambda, where technician sign-up and verification is provided by AWS Cognito and the profile is then stored using DynamoDB. Once a technician uploads a PDF in the website, it gets transferred to an AWS S3 bucket, parses the PFD document, then it goes through LangChain and Amazon Bedrock, for each section. The custom prompt scrapes all technical keywords, phrases and concepts and checks if a term is ambiguous and should be clarified, by comparing with another DynamoDB database with definitions.. Finally, it will show the text with any ambiguous terms flagged, with additional details being provided to the technician at the bottom half of the website.
 
 ## Getting Started
 
